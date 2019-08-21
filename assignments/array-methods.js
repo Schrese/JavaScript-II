@@ -82,14 +82,38 @@ console.log(largeFilter);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+let ticketPriceTotal = 
+runners.reduce(function(accumulator, item){
+  // console.log(`I am the accumulator: ${accumulator}`);
+  // console.log(`I am the item: ${item.donation}`);
+  return accumulator + item.donation;
+},0);
+
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
-
+//The organizer needs far more in donation funds, so she is going to contact everyone that donated under $100 to see if she can convince them to send more. 
+let moreDonations = []
+const donationFilter = runners.filter(function(item){
+  return item.donation <= 100;
+});
+console.log(donationFilter);
 // Problem 2
+//The organizer needs to get everyone that is in the company Skinix into one place because she needs a headcount for the buss to come pick them up as well as information so that no one gets into the van that it not supposed to be there. 
+let company = []
+const skinixBus = runners.filter(function(item){
+  return item.company_name == "Skinix";
+})
+
+console.log(skinixBus);
 
 // Problem 3
+//The event organizer needs the back of the shirts to have capital letters for the last names only (I'm doing this with .map because i didn't want to take away the one i finally figured out before i realized we were supposed to us .map)
+let lastNamesCaps = []
+const lastNames = runners.map(function(item){
+  return item.last_name.toUpperCase();
+})
+console.log(lastNames);
