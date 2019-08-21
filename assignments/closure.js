@@ -4,6 +4,20 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function name(myName) {
+  const firstName = "Schrese";
+  const favoriteGame = "Rocket League";
+    
+    function aboutMe(){
+        alert(`Hi there, my name is ${firstName} and my favorite game is ${favoriteGame}!`);
+}
+    return aboutMe;
+}
+
+var myFunc = name();
+myFunc();
+
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
